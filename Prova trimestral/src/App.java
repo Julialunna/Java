@@ -17,8 +17,9 @@ public class App {
             System.out.println("2-Fazer reserva");
             System.out.println("3-Adicionar cliente");
             System.out.println("4-Anotar pedido");
-            System.out.println("5-Adicionar os 10% do garçom");
-            System.out.println("6-Dividir a conta");
+            System.out.println("5-Listar pedido");
+            System.out.println("6-Adicionar os 10% do garçom");
+            System.out.println("7-Dividir a conta");
             System.out.println("0-Finalizar sistema");
             System.out.println("----------------------------");
             comando=ler.nextInt();
@@ -61,6 +62,57 @@ public class App {
                     }
                 }
                 BuchinhoCheio.getMesas(indiceReserva).adiciona_cliente(clienteDaReserva);
+                break;
+
+                case 4:
+                int idMesa=0, indiceDaReserva=0;
+                System.out.println("Deseja anotar pedido de qual mesa: ");
+                idMesa=ler.nextInt();
+                ler.nextLine();
+                for(i=0;i<BuchinhoCheio.getMesas_geral().length;i++){
+                    if(BuchinhoCheio.getMesas(i).getNumeroMesa()==idMesa){
+                        indiceDaReserva=i;
+                    }
+                }
+                BuchinhoCheio.getMesas(indiceDaReserva).getComandaMesa().anotar_pedido();
+                break;
+                case 5:
+                indiceDaReserva=0;
+                idMesa=0;
+                System.out.println("Deseja listar pedido de qual mesa: ");
+                idMesa=ler.nextInt();
+                for(i=0;i<BuchinhoCheio.getMesas_geral().length;i++){
+                    if(BuchinhoCheio.getMesas(i).getNumeroMesa()==idMesa){
+                        indiceDaReserva=i;
+                    }
+                }
+                BuchinhoCheio.getMesas(indiceDaReserva).getComandaMesa().listarConsumo();
+                break;
+
+                case 6:
+                idMesa=0;
+                indiceDaReserva=0;
+                System.out.println("Deseja calcular os 10% de qual mesa: ");
+                idMesa=ler.nextInt();
+                for(i=0;i<BuchinhoCheio.getMesas_geral().length;i++){
+                    if(BuchinhoCheio.getMesas(i).getNumeroMesa()==idMesa){
+                        indiceDaReserva=i;
+                    }
+                }
+                BuchinhoCheio.getMesas(indiceDaReserva).DezPorcentoGarcom();
+                break;
+
+                case 7:
+                idMesa=0;
+                indiceDaReserva=0;
+                System.out.println("Deseja calcular os 10% de qual mesa: ");
+                idMesa=ler.nextInt();
+                for(i=0;i<BuchinhoCheio.getMesas_geral().length;i++){
+                    if(BuchinhoCheio.getMesas(i).getNumeroMesa()==idMesa){
+                        indiceDaReserva=i;
+                    }
+                }
+                BuchinhoCheio.getMesas(indiceDaReserva).divisaoDaConta();
                 break;
 
             }

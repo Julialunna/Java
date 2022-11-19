@@ -76,15 +76,14 @@ public class Mesa {
                     }
                     this.setClientes(novoCliente, this.getClientes_geral().length-1);
                 }else{
-                    System.out.println("Nao rolowww!");
+                    System.out.println("A mesa já esta cheia");
                 }
                
             }
         }else{
-            System.out.println("Nao é possível fazer a reserva");
+            System.out.println("Nao é possível fazer a reserva, mesa não reservada");
         }
         if(this.clientes!=null){
-            System.out.println("teste1");
             for (int i=0;i<this.clientes.length;i++){
                 System.out.println(this.clientes[i].getNome());
             }
