@@ -1,5 +1,6 @@
 import java.util.Scanner;
 public class App {
+    //Júlia Almeida Luna Lorena Ricoy Martins
     public static void main(String[] args) throws Exception {
         int comando=0, i=0;
         Restaurante BuchinhoCheio = new Restaurante();
@@ -20,6 +21,7 @@ public class App {
             System.out.println("5-Listar pedido");
             System.out.println("6-Adicionar os 10% do garçom");
             System.out.println("7-Dividir a conta");
+            System.out.println("8-Finalizar reserva");
             System.out.println("0-Finalizar sistema");
             System.out.println("----------------------------");
             comando=ler.nextInt();
@@ -115,25 +117,21 @@ public class App {
                 BuchinhoCheio.getMesas(indiceDaReserva).divisaoDaConta();
                 break;
 
+                case 8:
+                idMesa=0;
+                indiceDaReserva=0;
+                System.out.println("Deseja calcular os 10% de qual mesa: ");
+                idMesa=ler.nextInt();
+                for(i=0;i<BuchinhoCheio.getMesas_geral().length;i++){
+                    if(BuchinhoCheio.getMesas(i).getNumeroMesa()==idMesa){
+                        indiceDaReserva=i;
+                    }
+                }
+                BuchinhoCheio.getMesas(indiceDaReserva).finalizar_reserva();
+                break;
+
             }
         }while (comando!=0);
-
-        for(i=0;i<BuchinhoCheio.getMesas_geral().length;i++){
-            System.out.println(BuchinhoCheio.getMesas(i).getNumeroMesa());
-            System.out.println(BuchinhoCheio.getMesas(i).getNumPessoas());
-        }
-        BuchinhoCheio.getMesas(0).listar_clientes();
-        /*
-         *  for(i=0;i<2;i++){
-            vetor4[i]=vetor5[i];
-        }
-        for(i=2;i<4;i++){
-            vetor4[i]=vetor5[i+1];
-        }
-        for(i=0;i<4;i++){
-            System.out.println(vetor4[i]);
-        }
-         */
     }
 }
 

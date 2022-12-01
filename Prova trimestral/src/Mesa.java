@@ -54,14 +54,18 @@ public class Mesa {
     }
 
     public boolean reservar(int numPessoas){
+        Scanner ler = new Scanner(System.in);
         this.setReserva(true);
         this.setNumPessoas(numPessoas);
+        System.out.println("Qual a data da reserva");
+        this.setData(ler.nextLine());
+        System.out.println(getData());
         return this.getReserva();
     }
 
     public void adiciona_cliente (Cliente novoCliente){
         if(this.getReserva()==true){
-            if(this.getClientes_geral()==null){
+            if(this.getClientes_geral()==null||this.getClientes_geral().length==0){
                 this.clientes=new Cliente[1];
                 this.setClientes(novoCliente, 0);
             }else{
@@ -124,4 +128,11 @@ public class Mesa {
         }
     }
 
+    public void finalizar_reserva(){
+        setData(null);
+        setReserva(false);
+        setNumPessoas(0);
+        comandaMesa=new Comanda();
+        clientes=new Cliente[0];
+    }
 }
