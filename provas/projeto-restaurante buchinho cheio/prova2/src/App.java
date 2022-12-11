@@ -12,9 +12,9 @@ public class App {
 
         System.out.println("------------"+BuchinhoCheio.getNome()+"------------");
         System.out.println("Endereço: "+BuchinhoCheio.getEndereco()+"\n");
-        System.out.println("Qual o valor do grama: ");
+        System.out.println("Qual o valor de 100 gramas: ");
         precoG=(ler.nextInt());
-        System.out.println("Qual o valor do ml: ");
+        System.out.println("Qual o valor de 100 ml: ");
         precoMl=(ler.nextInt());
         
         do{
