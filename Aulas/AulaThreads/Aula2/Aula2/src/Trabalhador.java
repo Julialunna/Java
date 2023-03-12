@@ -11,11 +11,12 @@ public class Trabalhador extends Thread{
     }
 
     public void parar(){
-        try 
+        /* 
         { Thread.sleep(10000); } 
         catch (InterruptedException ex) {
-            System.out.println("não rolou");
+            System.out.println("Erro");
         } 
+        */ 
         this.parar=true;
     }
 
@@ -25,10 +26,9 @@ public class Trabalhador extends Thread{
             try{
                 sleep((long)(Math.random()*this.tempo));
             }catch(InterruptedException e){}
-            /*if(i>90){
+            if(i>90){
                 this.parar();
             }
-            this.parar();*/
         }
         System.out.println("Terminei "+produto);
     }
