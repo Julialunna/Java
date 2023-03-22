@@ -1,10 +1,11 @@
 public class Sapo extends Thread{
-    private double distanciaPulo;
-    private double distanciaPercorrida;
-    private double identificadorSapo;
-    private double distanciaDaCorrida;
-    private static double[] colocacoes;
+    public double distanciaPulo;
+    public double distanciaPercorrida;
+    public double identificadorSapo;
+    public double distanciaDaCorrida;
+    public static double[] colocacoes;
 
+    /*
     public static double[] getColocacoesGeral() {
         return colocacoes;
     }
@@ -41,18 +42,21 @@ public class Sapo extends Thread{
     public void setDistanciaPercorrida(double distanciaPercorrida) {
         this.distanciaPercorrida = distanciaPercorrida;
     }
+     * 
+     */
+
 
     public void mostraInformacoes(){
-        System.out.println("Sapo: "+this.getIdentificadorSapo()+" distancia percorrida: "+this.getDistanciaPercorrida()+"distancia pulo: "+getDistanciaPulo());
+        System.out.println("Sapo: "+this.identificadorSapo+" distancia percorrida: "+this.distanciaPercorrida+" distancia pulo: "+this.distanciaPulo);
     }
 
     Sapo(double distanciaPulo, double identificadorSapo, double distanciaDaCorrida){
-        this.setDistanciaPulo(distanciaPulo);
-        this.setIdentificadorSapo(identificadorSapo);
-        this.setDistanciaDaCorrida(distanciaDaCorrida);
+        this.distanciaPulo=distanciaPulo;
+        this.identificadorSapo=identificadorSapo;
+        this.distanciaDaCorrida=distanciaDaCorrida;
     }
 
-    public void maisColocacoes(double id){
+    /*public void maisColocacoes(double id){
         if(Sapo.getColocacoesGeral()==null){
             Sapo.colocacoes=new double[1];
             Sapo.setColocacoes(id, 0);
@@ -76,19 +80,19 @@ public class Sapo extends Thread{
         for(int i=0;i<Sapo.getColocacoesGeral().length;i++){
             System.out.println(Sapo.getColocacoes(i));
         }
-    }
+    }*/
 
     public void run(){
         do{
-            this.setDistanciaPercorrida(this.getDistanciaPercorrida()+this.getDistanciaPulo());
+            this.distanciaPercorrida=this.distanciaPercorrida+this.distanciaPulo;
             mostraInformacoes();
-            if(this.getDistanciaPercorrida()>=this.getDistanciaDaCorrida()){
-                System.out.println("Sapo: "+this.getIdentificadorSapo()+" chegou!");
-                this.maisColocacoes(this.getIdentificadorSapo());
+            if(this.distanciaPercorrida>=this.distanciaDaCorrida){
+                System.out.println("Sapo: "+this.identificadorSapo+" chegou!");
+                //this.maisColocacoes(this.identificadorSapo());
                 /*for(int i=0;i<this.getColocacoesGeral().length;i++){
                     System.out.println(this.getColocacoes(i));
                 }*/
             }
-        }while(this.getDistanciaPercorrida()<this.getDistanciaDaCorrida());
+        }while(this.distanciaPercorrida<this.distanciaDaCorrida);
     }
 }
